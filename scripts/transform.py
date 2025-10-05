@@ -9,7 +9,7 @@ inp, outp = sys.argv[1], sys.argv[2]
 os.makedirs(outp, exist_ok=True)
 
 for f in os.listdir(inp):
-    if f.endswith(".csv"):
+    if f.endswith(".CSV"):
         df = pd.read_csv(os.path.join(inp, f))
 
         # Regras simples: remover linhas com nulos e padronizar nomes de colunas
@@ -21,4 +21,5 @@ for f in os.listdir(inp):
         
         # Salvar versões
         df.to_csv(os.path.join(outp, f"trusted_{f}"), index=False)
+
         df_client.to_csv(os.path.join(outp, f"client_{f}"), index=False)
