@@ -45,4 +45,4 @@ jobs:
       - name: Upload CLIENT
         run: |
           aws s3 cp ./output/ s3://${{ secrets.S3_BUCKET_NAME }}/client/ \
-            --recursive --e
+            --recursive --exclude "*" --include "client_*.csv"
