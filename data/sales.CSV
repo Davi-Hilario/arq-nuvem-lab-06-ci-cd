@@ -1,4 +1,5 @@
-Order Id;Customer;Amount
-1;Ana;100
-2;Bruno;200
-3;;150
+Order Id;Customer;Amount;;
+1;Ana;100;;
+2;Bruno;200;;
+3;;150;;
+4;Davi;500;;
