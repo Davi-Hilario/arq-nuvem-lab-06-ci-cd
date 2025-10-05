@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-      - 'data/*.csv' # dispara apenas quando CSVs em /data mudarem
+      - 'data/*.CSV' # dispara apenas quando CSVs em /data mudarem
   workflow_dispatch: # permite rodar manualmente
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
       - name: Upload original para RAW
         run: |
           aws s3 cp ./data/ s3://${{ secrets.S3_BUCKET_NAME }}/raw/ \
-            --recursive --exclude "*" --include "*.csv"
+            --recursive --exclude "*" --include "*.CSV"
 
       - name: Instalar dependências Python
         run: |
@@ -40,9 +40,9 @@ jobs:
       - name: Upload TRUSTED
         run: |
           aws s3 cp ./output/ s3://${{ secrets.S3_BUCKET_NAME }}/trusted/ \
-            --recursive --exclude "*" --include "trusted_*.csv"
+            --recursive --exclude "*" --include "trusted_*.CSV"
 
       - name: Upload CLIENT
         run: |
           aws s3 cp ./output/ s3://${{ secrets.S3_BUCKET_NAME }}/client/ \
-            --recursive --exclude "*" --include "client_*.csv"
+            --recursive --exclude "*" --include "client_*.CSV"
